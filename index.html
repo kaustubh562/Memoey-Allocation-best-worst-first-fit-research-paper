@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A professional simulation of First Fit, Best Fit and Worst Fit memory allocation algorithms.">
+    <title>MemoryLab | Memory Allocation Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<header class="navbar">
+    <a href="#" class="brand">
+        <span class="brand-icon">M</span>
+        MemoryLab
+    </a>
+    <span class="status"><span class="dot"></span> System Ready</span>
+</header>
+
+<main class="container">
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div>
+            <span class="eyebrow">OPERATING SYSTEMS RESEARCH</span>
+            <h1>Memory Allocation<br><span>Simulator</span></h1>
+            <p>
+                Explore and compare First Fit, Best Fit and Worst Fit
+                algorithms through interactive memory allocation.
+            </p>
+            <a href="#simulator" class="hero-button">Start Simulation →</a>
+        </div>
+        <div class="hero-icon" aria-hidden="true">▦</div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="panel" id="introduction">
+        <span class="eyebrow">01 · RESEARCH OVERVIEW</span>
+        <h2>Introduction</h2>
+
+        <p>
+            Memory management is an important function of an operating
+            system. When multiple programs run on a computer, each
+            program needs memory to store data and perform tasks.
+            First Fit, Best Fit and Worst Fit are three memory allocation
+            algorithms used to assign available memory to processes.
+        </p>
+
+        <p>
+            This research compares the three algorithms through
+            simulation. Their performance is studied using successful
+            process allocation, memory usage, remaining memory and
+            the number of search checks. The objective is to understand
+            how different allocation strategies affect memory management.
+        </p>
+
+        <div class="objective-box">
+            <strong>Research Objective</strong>
+            <p>
+                To simulate and compare the three allocation algorithms
+                and understand their behaviour under different memory
+                and process sizes.
+            </p>
+        </div>
+    </section>
+
+    <!-- Simulation Controls -->
+    <section class="panel" id="simulator">
+        <div class="section-heading">
+            <div>
+                <span class="eyebrow">02 · INTERACTIVE SIMULATION</span>
+                <h2>Simulation Settings</h2>
+                <p class="description">
+                    Enter memory block and process sizes in KB.
+                </p>
+            </div>
+            <button class="btn btn-light" id="resetBtn" type="button">
+                Reset Example
+            </button>
+        </div>
+
+        <div class="form-grid">
+            <label for="blocks">
+                Memory Blocks (KB)
+                <input id="blocks" type="text" value="150, 150, 350"
+                       placeholder="100, 200, 350">
+                <small>Separate each size with a comma.</small>
+            </label>
+
+            <label for="processes">
+                Process Sizes (KB)
+                <input id="processes" type="text" value="300, 25, 125, 50"
+                       placeholder="50, 100, 200">
+                <small>Processes are allocated in entered order.</small>
+            </label>
+        </div>
+
+        <button class="btn btn-primary" id="runBtn" type="button">
+            Run Simulation <span>→</span>
+        </button>
+
+        <p id="error" class="error" role="alert"></p>
+    </section>
+
+    <!-- Summary Metrics -->
+    <section class="metrics-grid">
+        <article class="metric-card">
+            <span>Total Memory</span>
+            <h2 id="totalMemory">650 KB</h2>
+        </article>
+
+        <article class="metric-card">
+            <span>Total Processes</span>
+            <h2 id="totalProcesses">4</h2>
+        </article>
+
+        <article class="metric-card">
+            <span>Algorithms Compared</span>
+            <h2>03</h2>
+        </article>
+    </section>
+
+    <!-- Results -->
+    <section class="results-section">
+        <div class="section-heading">
+            <div>
+                <span class="eyebrow">03 · LIVE ANALYSIS</span>
+                <h2>Algorithm Comparison</h2>
+                <p class="description">
+                    Run the simulation to compare allocation results.
+                </p>
+            </div>
+
+            <div class="legend">
+                <span><i class="used-key"></i> Allocated</span>
+                <span><i class="free-key"></i> Remaining</span>
+            </div>
+        </div>
+
+        <div id="results" class="results-grid" aria-live="polite"></div>
+    </section>
+
+    <!-- Key Findings -->
+    <section class="panel" id="key-findings">
+        <span class="eyebrow">04 · RESEARCH RESULTS</span>
+        <h2>Key Findings</h2>
+
+        <div class="research-grid">
+            <article class="research-card">
+                <span class="number">01</span>
+                <h3>First Fit</h3>
+                <p>
+                    First Fit selects the first suitable memory block.
+                    It is simple to implement and can perform fewer
+                    searches when a suitable block is found early.
+                </p>
+            </article>
+
+            <article class="research-card">
+                <span class="number">02</span>
+                <h3>Best Fit</h3>
+                <p>
+                    Best Fit selects the smallest block that can
+                    accommodate a process. It may leave small gaps
+                    that are difficult to reuse for larger processes.
+                </p>
+            </article>
+
+            <article class="research-card">
+                <span class="number">03</span>
+                <h3>Worst Fit</h3>
+                <p>
+                    Worst Fit selects the largest suitable block.
+                    It may leave a larger remainder, but this does
+                    not guarantee better overall memory usage.
+                </p>
+            </article>
+        </div>
+
+        <div class="finding-note">
+            <strong>Main Observation</strong>
+            <p>
+                The performance of each algorithm depends on the sizes
+                and order of processes and the available memory blocks.
+                No single algorithm is always the best.
+            </p>
+        </div>
+    </section>
+
+    <!-- Applications -->
+    <section class="panel" id="applications">
+        <span class="eyebrow">05 · PRACTICAL USE</span>
+        <h2>Applications of the Research</h2>
+
+        <div class="application-grid">
+            <article class="application-item">
+                <span class="application-icon">01</span>
+                <div>
+                    <h3>Operating Systems</h3>
+                    <p>
+                        Helps explain how available memory can be assigned
+                        to programs running on a computer.
+                    </p>
+                </div>
+            </article>
+
+            <article class="application-item">
+                <span class="application-icon">02</span>
+                <div>
+                    <h3>Computer Science Education</h3>
+                    <p>
+                        Allows students to understand and compare memory
+                        allocation algorithms through practical examples.
+                    </p>
+                </div>
+            </article>
+
+            <article class="application-item">
+                <span class="application-icon">03</span>
+                <div>
+                    <h3>Embedded Systems</h3>
+                    <p>
+                        Supports the study of memory allocation in devices
+                        with limited memory resources.
+                    </p>
+                </div>
+            </article>
+
+            <article class="application-item">
+                <span class="application-icon">04</span>
+                <div>
+                    <h3>Performance Analysis</h3>
+                    <p>
+                        Helps compare allocation success, remaining memory
+                        and search operations under different workloads.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Conclusion -->
+    <section class="panel conclusion" id="conclusion">
+        <span class="eyebrow">06 · SUMMARY</span>
+        <h2>Conclusion</h2>
+        <p>
+            The simulation demonstrates how First Fit, Best Fit and
+            Worst Fit allocate memory differently. By testing different
+            block and process sizes, users can compare allocation success
+            and remaining memory. The results help explain why the choice
+            of allocation algorithm depends on the workload and memory
+            usage pattern.
+        </p>
+    </section>
+
+    <footer>
+        <span>MemoryLab · Operating Systems Research</span>
+        <span>HTML · CSS · JavaScript</span>
+    </footer>
+
+</main>
+</body>
+</html>
